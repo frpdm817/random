@@ -6,5 +6,4 @@ layout: default
 ### [{{ post.title }}]({{ post.url | relative_url }})
 <small>{{ post.date | date: "%B %-d, %Y" }}</small>
 
-{{ post.excerpt }}
 {% endfor %}
