@@ -1,0 +1,5 @@
+title: Random
+description: Everything that doesn't fit anywhere else.
+theme: jekyll-theme-minimal
+url: https://random.fabiopereira.name
+permalink: /:year/:month/:day/:title/
