@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if page.lang_redirect %}
+{% include lang-redirect.html %}
+{%- endif %}
+{% include seo.html %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237a4fc4'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fffdf9'>R</text></svg>">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/lang.js" defer></script>
+</head>
+<body>
+  {% include lang-switcher.html %}
+  <main>
+    {% include site-header.html %}
+    {{ content }}
+  </main>
+  <footer>© {{ site.time | date: "%Y" }} Fabio Pereira de Melo</footer>
+</body>
+</html>

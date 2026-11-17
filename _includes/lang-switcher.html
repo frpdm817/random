@@ -1,0 +1,9 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+<nav class="lang" aria-label="{{ t.nav_label }}">
+  {%- for code in site.data.i18n.languages -%}
+    {%- include lang-target.html code=code -%}
+    {%- comment -%} Any link to the English root from a page other than the English home must be /?lang=en (saves English, avoids the cookie redirect). On the English home itself it is the current page: plain "/". {%- endcomment -%}
+    {%- if target == "/" and page.url != "/" -%}{%- assign href = "/?lang=en" -%}{%- else -%}{%- assign href = target -%}{%- endif %}
+  <a href="{{ href }}" hreflang="{{ code }}" lang="{{ code }}"{% if code == page.lang %} aria-current="page"{% endif %} aria-label="{{ L.name }}">{% include flag.html code=code %}{{ code | upcase }}</a>
+  {%- endfor %}
+</nav>

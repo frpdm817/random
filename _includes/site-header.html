@@ -1,0 +1,10 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+<header class="site-header">
+  <a class="back" href="{{ t.hub_url }}"><span aria-hidden="true">←</span> {{ t.all_blogs }}</a>
+  {%- if page.layout == "home" %}
+  <h1 class="site-title">{{ t.title }}</h1>
+  <p class="intro">{{ t.description }}</p>
+  {%- else %}
+  <a class="site-title site-title-link" href="{{ t.home_link }}">{{ t.title }}</a>
+  {%- endif %}
+</header>

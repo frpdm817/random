@@ -1,0 +1,45 @@
+# Every UI string lives here, one block per language.
+# To add a language: add its code to `languages`, a block below, and defaults in _config.yml.
+languages: [en, es, pt]
+
+en:
+  name: English
+  home: /
+  home_link: /?lang=en   # links to the English home from other pages; plain / would trigger the cookie redirect
+  title: Random
+  description: "Everything that doesn't fit anywhere else."
+  hub_url: https://blog.fabiopereira.name/?lang=en
+  all_blogs: All blogs
+  all_posts: All posts
+  no_posts: No posts in this language yet.
+  nav_label: Language
+  date_format: "%B %-d, %Y"
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]
+
+es:
+  name: Español
+  home: /es/
+  home_link: /es/
+  title: Miscelánea
+  description: Todo lo que no encaja en ningún otro sitio.
+  hub_url: https://blog.fabiopereira.name/es/
+  all_blogs: Todos los blogs
+  all_posts: Todas las entradas
+  no_posts: Todavía no hay entradas en español. Mientras tanto, aquí están las entradas en inglés.
+  nav_label: Idioma
+  date_format: "%-d de %B de %Y"
+  months: [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+
+pt:
+  name: Português
+  home: /pt/
+  home_link: /pt/
+  title: Miscelânea
+  description: Tudo o que não cabe em nenhum outro lugar.
+  hub_url: https://blog.fabiopereira.name/pt/
+  all_blogs: Todos os blogs
+  all_posts: Todas as publicações
+  no_posts: Ainda não há publicações em português. Enquanto isso, aqui estão as publicações em inglês.
+  nav_label: Idioma
+  date_format: "%-d de %B de %Y"
+  months: [janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro]
