@@ -1,0 +1,25 @@
+  <script>
+    // Runs first, before any stylesheet, so it never waits on Google Fonts.
+    // Sends returning ES/PT readers to their saved language. "/?lang=en" (the EN switcher
+    // link) saves English first, so switching back works even before lang.js has loaded.
+    (function () {
+      var p = new URLSearchParams(location.search);
+      if (p.get("lang") === "en") {
+        if (/(^|\.)fabiopereira\.name$/.test(location.hostname)) {
+          document.cookie = "lang=; Path=/; Max-Age=0"; // drop any stale host-only copy
+          document.cookie = "lang=en; Path=/; Max-Age=31536000; SameSite=Lax; Domain=fabiopereira.name; Secure";
+        } else {
+          document.cookie = "lang=en; Path=/; Max-Age=31536000; SameSite=Lax";
+        }
+        p.delete("lang");
+        var q = p.toString();
+        history.replaceState(null, "", location.pathname + (q ? "?" + q : "") + location.hash);
+        return;
+      }
+      // Respect the Back button: don't bounce a reader who navigated back to English.
+      var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      if (nav && nav.type === "back_forward") return;
+      var m = document.cookie.match(/(?:^|; )lang=(es|pt)(?:;|$)/);
+      if (m) location.replace("/" + m[1] + "/" + location.search + location.hash);
+    })();
+  </script>

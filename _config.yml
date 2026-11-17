@@ -1,5 +1,25 @@
 title: Random
-description: Everything that doesn't fit anywhere else.
-theme: jekyll-theme-minimal
+description: "Everything that doesn't fit anywhere else."
 url: https://random.fabiopereira.name
 permalink: /:year/:month/:day/:title/
+timezone: UTC
+
+# Not part of the site output.
+exclude:
+  - README.md
+
+# lang + layout per path. English lives at the root; es/ and pt/ hold the translations.
+# The more specific path wins, so es/ and pt/ override the English defaults.
+defaults:
+  - scope: { path: "" }
+    values: { lang: en }
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "es" }
+    values: { lang: es }
+  - scope: { path: "es", type: posts }
+    values: { permalink: /es/:year/:month/:day/:title/ }
+  - scope: { path: "pt" }
+    values: { lang: pt }
+  - scope: { path: "pt", type: posts }
+    values: { permalink: /pt/:year/:month/:day/:title/ }

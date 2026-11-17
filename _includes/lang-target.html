@@ -1,0 +1,23 @@
+{%- comment -%}
+  Where the version of this page in another language lives.
+  Param: code (en|es|pt). Sets: L (that language's strings), target (URL), available (bool).
+  Posts: the post itself, or its translation sharing `ref`; none -> that language's home, available = false.
+  Home pages: that language's home.
+{%- endcomment -%}
+{%- assign L = site.data.i18n[include.code] -%}
+{%- assign target = L.home -%}
+{%- assign available = true -%}
+{%- if page.layout == "post" -%}
+  {%- if include.code == page.lang -%}
+    {%- assign target = page.url -%}
+  {%- else -%}
+    {%- assign available = false -%}
+    {%- if page.ref -%}
+      {%- assign match = site.posts | where: "lang", include.code | where: "ref", page.ref | first -%}
+      {%- if match -%}
+        {%- assign target = match.url -%}
+        {%- assign available = true -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

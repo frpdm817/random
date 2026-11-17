@@ -1,0 +1,19 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- if page.layout == "home" -%}
+  {%- assign page_title = t.title -%}
+{%- else -%}
+  {%- assign page_title = page.title | append: " — " | append: t.title -%}
+{%- endif -%}
+{%- assign page_description = page.description | default: t.description %}
+  <title>{{ page_title | escape }}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{%- for code in site.data.i18n.languages -%}
+  {%- include lang-target.html code=code -%}
+  {%- if available %}
+  <link rel="alternate" hreflang="{{ code }}" href="{{ site.url }}{{ target }}">
+    {%- if code == "en" %}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ target }}">
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor %}
